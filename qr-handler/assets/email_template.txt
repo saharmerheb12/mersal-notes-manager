@@ -1,0 +1,148 @@
+<div>
+<table align="center" width="700" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" style="width:700px;background-color:#ffffff;padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td height="15" style="height:15px;padding:0;margin:0;line-height:1px;font-size:1px">
+&nbsp; </td>
+</tr>
+<tr>
+<td style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table cellpadding="0" cellspacing="0" border="0" align="left" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr align="left">
+<td align="left" width="15" style="width:15px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+<td align="left" width="28" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<img align="left" width="28" style="width:28px;padding-bottom:2px;margin:0;padding:0;display:block;border:none;outline:none" src="logo.jpg" class="CToWUd" data-bit="iit">
+</td>
+<td align="left" width="10" style="width:10px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+<td align="left" style="padding:0;margin:0;line-height:1px;font-size:1px;font-family:'Helvetica Neue Light',Helvetica,Arial,sans-serif;color:#66757f;font-size:16px;padding:0px;margin:0px;font-weight:300;line-height:100%;text-align:left">
+Hello, </td>
+<td width="50" align="left" style="width:50px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="14" style="height:14px;padding:0;margin:0;line-height:1px;font-size:1px">
+&nbsp; </td>
+</tr>
+</tbody>
+</table>
+<table align="center" width="700" cellpadding="0" cellspacing="0" border="0" style="width:700px;background-color:#ffffff;padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+<table align="center" width="700" cellpadding="0" cellspacing="0" border="0" style="width:700px;background-color:#ffffff;padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td width="50" style="width:50px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+<td align="center" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td height="30" style="height:45px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+<tr>
+<td align="left" style="padding:0;margin:0;line-height:1px;font-size:1px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:30px;font-weight:300;text-align:left;color:#292f33">
+QR Code is ready for order no. <b>#order-id#</b> </td>
+</tr>
+<tr>
+<td height="30" style="height:30px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+<tr>
+<td align="left" style="padding:0;margin:0;line-height:1px;font-size:1px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:22px;font-weight:400;text-align:left;color:#292f33">
+Click on the button below to download, link is available for the next 1 hour.
+</td>
+</tr>
+<tr>
+<td height="25" style="height:25px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+<tr>
+<td align="left" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table border="0" cellspacing="0" cellpadding="0" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table border="0" cellspacing="0" cellpadding="0" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td align="center" bgcolor="#3CA096" style="padding:0;margin:0;line-height:1px;font-size:1px;border-radius:4px;line-height:18px">
+<a href="#pre-signed-url#" style="font-size:16px;text-decoration:none;border-top:#3CA096 1px solid;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;border-right:#3CA096 1px solid;border-bottom:#3CA096 1px solid;font-weight:500;color:#ffffff;padding-bottom:11px;text-align:center;padding-top:11px;padding-left:30px;margin:0px;border-left:#3CA096 1px solid;display:inline-block;line-height:22px;padding-right:30px;border-radius:4px" target="_blank" data-saferedirecturl="#per-signed-url#"><strong>Download QR Code</strong> </a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="55" style="height:55px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width="50" style="width:50px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+<table align="center" width="700" cellpadding="0" cellspacing="0" border="0" style="width:700px;background-color:#ffffff;padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+<table align="center" width="700" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0" style="width:700px;background-color:#ffffff;padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr>
+<td height="15" style="height:15px;padding:0;margin:0;line-height:1px;font-size:1px">
+&nbsp; </td>
+</tr>
+<tr>
+<td style="padding:0;margin:0;line-height:1px;font-size:1px">
+<table cellpadding="0" cellspacing="0" border="0" align="left" style="padding:0;margin:0;line-height:1px;font-size:1px">
+<tbody>
+<tr align="left">
+<td align="left" width="10" style="width:10px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+<td align="left" style="padding:0;margin:0;line-height:1px;font-size:1px;font-family:'Helvetica Neue Light',Helvetica,Arial,sans-serif;color:#66757f;font-size:16px;padding:0px;margin:0px;font-weight:300;line-height:100%;text-align:left">
+Mersal Team</td>
+<td width="50" align="left" style="width:50px;padding:0;margin:0;line-height:1px;font-size:1px">
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height="14" style="height:14px;padding:0;margin:0;line-height:1px;font-size:1px">
+&nbsp; </td>
+</tr>
+</tbody>
+</table><div class="yj6qo"></div><div class="adL">
+</div></div>

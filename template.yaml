@@ -1,0 +1,164 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: SAM template for creating resources required for Automating QR code generation of users media
+
+Parameters:
+  DomainName:
+    Description: The domain name for the referer policy
+    Type: String
+    Default: xxxxx.com
+  NotesBucketName:
+    Description: The bucket name for the users media (mp3 and thumbnail)
+    Type: String
+    Default: xxxx-notes-bucket
+  QRCodesBucketName:
+    Description: The bucket name for the generated QRCode
+    Type: String
+    Default: xxxx-qrcode-bucket
+  SESRegion:
+    Description: SES Region - where recipient identity should be verified
+    Type: String
+    Default: eu-central-1
+  NewQREmailSender:
+    Description: The sender id of new qr email notice
+    Type: String
+    Default: xxxxxx@xxxxx.com
+  NewQREmailRecipient:
+    Description: The email id receiving new qr email notice
+    Type: String
+    Default: xxxxxxxx@xxxxx.com
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 128
+    Tracing: Active
+
+Resources:
+  NotesBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Sub "${NotesBucketName}"
+      CorsConfiguration:
+        CorsRules:
+          - AllowedOrigins:
+              - !Sub "https://${DomainName}"
+            AllowedHeaders:
+              - "*"
+            AllowedMethods:
+              - GET
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: false
+  QRCodeBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Sub "${QRCodesBucketName}"
+
+  NewObjectDetectedLambda:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: NewObjectDetectedFunction
+      Runtime: python3.10
+      Handler: app.handler
+      CodeUri: note-handler/
+      Layers:
+        - arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-Pillow:3
+      Environment:
+        Variables:
+          VIDEO_PATH: !Sub "https://${DomainName}/v"
+          AUDIO_PATH: !Sub "https://${DomainName}/a"
+          QR_SCALE: .75
+          ADD_LOGO: True
+          LOGO_SCALE: .25
+          ADD_ENVELOP: True
+          QR_BUCKET: !Sub "${QRCodesBucketName}"
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Ref QRCodeBucket
+      Events:
+        NewObjectCreated:
+          Type: S3
+          Properties:
+            Bucket: !Ref NotesBucket
+            Events: s3:ObjectCreated:*
+
+  NewQRDetectedLambda:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      FunctionName: NewQRDetectedFunction
+      Runtime: python3.10
+      Handler: app.handler
+      CodeUri: qr-handler/
+      Role: !GetAtt NewQRDetectedLambdaRole.Arn
+      Environment:
+        Variables:
+          QR_PRESIGNED_URL_EXPIRY: 3600
+          SES_REGION: !Sub "${SESRegion}"
+          SENDER: !Sub "${NewQREmailSender}"
+          RECIPIENT: !Sub "${NewQREmailRecipient}"
+          SUBJECT_TEMPLATE: "QR Code ready! Order ##order-id#"
+
+      Events:
+        NewObjectCreated:
+          Type: S3
+          Properties:
+            Bucket: !Ref QRCodeBucket
+            Events: s3:ObjectCreated:*
+
+  NewQRDetectedLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess
+      Policies:
+        - PolicyName: SendEmailPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                Resource: "*"
+        - PolicyName: ReadQRBucketPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                Resource:
+                  - !Sub "arn:aws:s3:::${QRCodesBucketName}"
+                  - !Sub "arn:aws:s3:::${QRCodesBucketName}/*"
+
+  NotesBucketPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket: !Ref NotesBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Id: "Domain referer policy"
+        Statement:
+          - Sid: !Sub "Allow get requests originated from www.${DomainName} and ${DomainName}"
+            Effect: "Allow"
+            Principal: "*"
+            Action: "s3:GetObject"
+            Resource: !Sub "arn:aws:s3:::${NotesBucketName}/*"
+            Condition:
+              StringLike:
+                aws:Referer:
+                  - !Sub "https://${DomainName}/*"
+                  - !Sub "https://www.${DomainName}/*"
