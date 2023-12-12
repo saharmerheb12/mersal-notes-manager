@@ -69,7 +69,7 @@ Ensure the project is deployed on AWS.
 _Docker required_
 
 ```
-sam package --s3-bucket mersalqr-src-code --template-file template.yaml --output-template-file gen/template-generated.yaml
+sam package --s3-bucket xxx-src-code-bucket --template-file template.yaml --output-template-file gen/template-generated.yaml
 sam local invoke NewObjectDetectedLambda -e tests/new_note_event.json
 sam local invoke NewQRDetectedLambda -e tests/new_qr_event.json
 ```
@@ -81,11 +81,11 @@ Monitor the AWS CloudWatch logs for each Lambda function to verify successful ex
 Check the admin email for the branded QR code attachment.
 
 ```
-sam package --s3-bucket mersalqr-src-code --template-file template.yaml --output-template-file gen/template-generated.yaml
-sam deploy --template-file gen/template-generated.yaml --stack-name mersal-qrcode-stack --capabilities CAPABILITY_IAM
-aws s3 cp <local_directory>\note_cover.jpg s3://xxxx-xxxx-bucket
-aws s3 cp <local_directory>\note_audio.mp3 s3://xxxx-xxxx-bucket
-aws s3 cp <local_directory>\note_video.mp4 s3://xxxx-xxxx-bucket
+sam package --s3-bucket xxx-src-code-bucket --template-file template.yaml --output-template-file gen/template-generated.yaml
+sam deploy --template-file gen/template-generated.yaml --stack-name xxxx-qrcode-stack --capabilities CAPABILITY_IAM
+aws s3 cp <local_directory>\note_cover.jpg s3://xxx-notes-bucket
+aws s3 cp <local_directory>\note_audio.mp3 s3://xxx-notes-bucket
+aws s3 cp <local_directory>\note_video.mp4 s3://xxx-notes-bucket
 ```
 
 Congratulations! You have successfully deployed and tested the AwesomeMediaProject.
