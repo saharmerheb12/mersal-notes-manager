@@ -88,4 +88,3 @@ aws s3 cp <local_directory>\note_audio.mp3 s3://xxx-notes-bucket
 aws s3 cp <local_directory>\note_video.mp4 s3://xxx-notes-bucket
 ```
 
-Congratulations! You have successfully deployed and tested the AwesomeMediaProject.
